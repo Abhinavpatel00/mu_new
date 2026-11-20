@@ -1,0 +1,28 @@
+# Android SDK / AVD cache (user-local tooling, not source)
+.android/
+
+# Build products
+desktop/build/
+desktop/a.out
+desktop/toon
+desktop/toon_shot.png
+desktop/tests/smoke.png
+mobile/mg_test
+mobile/pc_test
+
+# Android demo build products (made by demo/build_apk.sh)
+mobile/demo/build/
+mobile/demo/*.apk
+mobile/demo/*.so
+mobile/demo/shaders/spirv.h
+
+# Mobile scratch / research working files
+mobile/.freebuff/
+mobile/.scratch/
+
+# Mesa is a separate upstream project with its own git; keep it out of this repo.
+mesa/
+
+# Editors
+.*.sw[a-z]
+*~

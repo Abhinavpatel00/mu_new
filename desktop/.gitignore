@@ -1,0 +1,8 @@
+# build products (see Makefile)
+/build/
+/toon
+/smoke
+/a.out
+# written by the programs: F2 in the demo, and the smoke test's frame
+/toon_shot.png
+/tests/smoke.png

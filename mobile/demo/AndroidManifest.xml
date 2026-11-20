@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mgdemo"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="34" />
+
+    <!-- Vulkan is required to run, but not to install: it keeps the APK
+         sideloadable on a test device without the Play Store's filters. -->
+    <uses-feature android:name="android.hardware.vulkan.version"
+        android:version="0x400003" android:required="false" />
+    <uses-feature android:name="android.hardware.vulkan.level"
+        android:version="0" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <application
+        android:label="mg demo"
+        android:hasCode="false"
+        android:extractNativeLibs="false"
+        android:allowBackup="false"
+        android:debuggable="true">
+
+        <!-- Apps targeting API 30+ need this to load validation layers that
+             live outside the APK (developer.android.com/ndk/guides/graphics/
+             validation-layer): adb push + run-as + the gpu_debug_layers
+             settings in README.md. Harmless when no layer is installed. -->
+        <meta-data android:name="com.android.graphics.injectLayers.enable"
+            android:value="true" />
+
+        <activity
+            android:name="android.app.NativeActivity"
+            android:exported="true"
+            android:label="mg demo"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <meta-data android:name="android.app.lib_name" android:value="mobile" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
